@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="vyoung">
+
+    <title style="color: #17a2b8">forings</title>
+
+    <!-- Bootstrap core CSS -->
+    <!--<link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="https://cdn.bootcss.com/startbootstrap-landing-page/3.3.7/css/landing-page.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <!-- Masthead -->
+    <br><br><br>
+    <header class="masthead text-white text-center">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <h1 class="mb-5" style="color: indigo">forings</h1>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <form method="get" action="/search">
+              <div class="form-row">
+                <div class="col-12 col-md-9 mb-2 mb-md-0">
+                  <input type="text" class="form-control form-control-lg" placeholder="enter anything you want. . ." name="key" value={{ key_words }}>
+                </div>
+                <div class="col-12 col-md-3">
+                  <button type="submit" class="btn btn-block btn-lg btn-primary">vyoung</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="resultList" style="padding-left: 20px">
+                    {% for hit in all_hits %}
+                    <div class="resultItem">
+                            <div class="itemHead">
+                                <a href="{% autoescape off %} {{ hit.url }} {% endautoescape %}"  target="_blank" class="title" style="color: blue;padding-left:0px">{% autoescape off %} {{ hit.title }} {% endautoescape %}</a>
+                                <span class="divsion">-</span>
+                                <span class="fileType">
+                                    <span class="label" style="color: rebeccapurple">来源：</span>
+                                    <span class="value" style="color: rebeccapurple">网络</span>
+                                </span>
+                                <span class="dependValue" >
+                                    <span class="label">得分：</span>
+                                    <span class="value">3.401155</span>
+                                </span>
+                            </div>
+                            <div class="itemBody " style="color:black">
+                                {% autoescape off %} {{ hit.description }} {% endautoescape %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- 分页 -->
+                <div class="pagination ue-clear"></div>
+                <!-- 相关搜索 -->
+            </div>
+    </header>
+  </body>
